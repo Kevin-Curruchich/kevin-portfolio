@@ -39,6 +39,11 @@ jobs:
         with:
           node-version: 20
           cache: npm # or pnpm / yarn
+      - name: Cleanup workspace
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
+          rm -rf docs/.vitepress/dist
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Install dependencies
